@@ -8,4 +8,9 @@ class Carrera extends Model
 {
     public $timestamps = false;
     protected $fillable=['carrera'];
+
+    public function user()
+    {
+    	return $this->hasMany('App\User');
+    }
 }

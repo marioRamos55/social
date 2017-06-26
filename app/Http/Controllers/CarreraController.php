@@ -47,6 +47,7 @@ class CarreraController extends Controller
     public function store(Request $request)
     {
         //dd($request);
+        $this->validate($request,['carrera'=>'required|max:255']);
 
         Carrera::create($request->input());
         $carrera= new Carrera();

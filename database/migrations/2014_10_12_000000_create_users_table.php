@@ -8,16 +8,20 @@ class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     
      * @return void
      */
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('nombre');
+            $table->string('correo')->unique();
             $table->string('password');
+            $table->integer('codigo')->unique()->unsigned();
+             $table->enum('rol',['Admin','Prestador']);
+              $table->integer('carrera_id')->unsigned();
+
             $table->rememberToken();
             $table->timestamps();
         });
