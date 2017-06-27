@@ -20,6 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/carrera','CarreraController');
+Route::resource('/usuario','userController');
 //Route::resource('/carrera','CarreraController@index');
 //Route::resource('/carrera/nueva','CarreraController@create');
 //Route::post('/carrera','usuarioController@user')
