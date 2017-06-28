@@ -31,4 +31,16 @@ class User extends Authenticatable
     {
         return $this->belongs('App\Carrera');
     }
+
+/**
+     * RELACION DE MUCHOS A MUCHOS
+     *
+     * @var array
+     */
+    public function programas()
+    {
+        return $this->belongsToMany('App\programas');
+    }
+
+
 }

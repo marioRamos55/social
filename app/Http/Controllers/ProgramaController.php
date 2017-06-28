@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\User;
-
 use App\Programa;
-class userController extends Controller
+use Illuminate\Http\Request;
+
+class ProgramaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,6 @@ class userController extends Controller
      */
     public function index()
     {
-        $users=User::all()->load('carrera');
-
-        return view('user.indexUsuarios',compact('users'));
         //
     }
 
@@ -45,37 +41,21 @@ class userController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Programa  $programa
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Programa $programa)
     {
-        $user=User::find($id);
-        //dd($user);
-        $programas=Programa::get(['id'])->all();
-
-        foreach ($programas as $programa) {
-            # code...
-            arrProgramas[]=[$programa->id=>$programa->nombre];
-
-        }
-
-
-
-
-
-
-        return view('user.showUser',compact('user','programas'));
         //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Programa  $programa
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Programa $programa)
     {
         //
     }
@@ -84,10 +64,10 @@ class userController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Programa  $programa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Programa $programa)
     {
         //
     }
@@ -95,10 +75,10 @@ class userController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Programa  $programa
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Programa $programa)
     {
         //
     }

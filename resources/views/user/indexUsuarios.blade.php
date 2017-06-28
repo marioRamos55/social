@@ -10,21 +10,24 @@
 
                 <div class="panel-body">
                     @if(count($users)>0)
-                      <table>
-                        <th>Id</th>
-                        <th>Codigo</th>
-                        <th>Nombre</th>
-                        <th>Correo</th>
-                        <th>Carrera</th>
-                        <th>Rol</th>
-
+                      <table class="table border">
+                          <thead>
+                            <th>Id</th>
+                            <th>Codigo</th>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Carrera</th>
+                            <th>Rol</th>
+                          </thead>
                         <body>
                             @foreach($users as $user)
                             <tr>
                               <td>{{ $user->id}}</td>
-                              <td>{{ $user->carrera->carrera}}</td>
+                              <td>{{ $user->codigo}}</td>
                               <td>{{ $user->nombre}}</td>
                               <td>{{ $user->correo}}</td>
+                              <td>{{ $user->carrera->carrera}}</td>
+                              <td>{{ $user->rol}}</td>
                             </tr>
                             @endforeach
                         </body>
@@ -33,8 +36,7 @@
                       <span>No  hay carreras registradas</span>
                       @endif
                      
-                      <a href="/carrera/create" class="btn btn-succes">Nueva carrera</a>
-                      <a href="{{route('carrera.create')}}" class="btn btn-succes">Nueva carrera</a>
+                      
                 </div>
             </div>
         </div>

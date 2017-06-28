@@ -14,7 +14,7 @@
                             <label for="nombre" class="col-md-4 control-label">Nombre</label>
 
                             <div class="col-md-6">
-                                <input id="nombre" type="text" class="form-control" name="nombre" value="{{ old('name') }}" required autofocus>
+                                <input id="nombre" type="text" class="form-control" name="nombre" value="{{ old('nombre') }}" required autofocus>
 
                                 @if ($errors->has('nombre'))
                                     <span class="help-block">
@@ -24,25 +24,13 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('correo') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="correo" value="{{ old('correo') }}" required>
 
-                                @if ($errors->has('correo'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('correo') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('codigo') ? ' has-error' : '' }}">
+                          <div class="form-group{{ $errors->has('codigo') ? ' has-error' : '' }}">
                             <label for="codigo" class="col-md-4 control-label">Codigo</label>
 
                             <div class="col-md-6">
-                                <input id="codigo" class="form-control" name="codigo" required>
+                                <input id="codigo" class="form-control" name="codigo" value="{{old('codigo')}}" required autofocus>
 
                                 @if ($errors->has('codigo'))
                                     <span class="help-block">
@@ -53,15 +41,36 @@
                         </div>
 
 
+
+
+
+
+                        <div class="form-group{{ $errors->has('correo') ? ' has-error' : '' }}">
+                            <label for="correo" class="col-md-4 control-label">E-Mail Address</label>
+
+                            <div class="col-md-6">
+                                <input id="correo" type="email" class="form-control" name="correo" value="{{ old('correo') }}" required>
+
+                                @if ($errors->has('correo'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('correo') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                      
+
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Contraseña</label>
 
                             <div class="col-md-6">
-                                <input id="codigo" type="password" class="form-control" name="codigo" required>
+                                <input id="password" type="password" class="form-control" name="password" required>
 
-                                @if ($errors->has('contraseña'))
+                                @if ($errors->has('password'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('contraseña') }}</strong>
+                                        <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -89,7 +98,8 @@
 
 
                          <div class="form-group{{ $errors->has('rol') ? ' has-error' : '' }}" >
-                            <label for="password" class="col-md-4 control-label">Rol</label>
+                            <label for="rol" class="col-md-4 control-label">Rol</label>
+                            <div class="col-md-6">
                             <select class="form-control" name="rol">
 
                                 <option value="Prestador">Prestador</option>
@@ -97,10 +107,6 @@
 
 
                             </select>
-
-
-                            <div class="col-md-6">
-                                
 
                                 @if ($errors->has('rol'))
                                     <span class="help-block">
@@ -112,8 +118,9 @@
 
 
 
-                         <div class="form-group{{ $errors->has('carrera') ? ' has-error' : '' }}" >
-                            <label for="password" class="col-md-4 control-label">Carrera</label>
+                         <div class="form-group{{ $errors->has('carrera_id') ? ' has-error' : '' }}" >
+                            <label for="carrera_id" class="col-md-4 control-label">Carrera</label>
+                            <div class="col-md-6">
                             <select  name="carrera_id" class="form-control">
                                 @foreach(App\Carrera::all() as $carrera)
                                 <option value="$carrera->id">{{$carrera->carrera}}</option>
@@ -123,12 +130,12 @@
                             </select>
 
 
-                            <div class="col-md-6">
+                            
                                 
 
-                                @if ($errors->has('rol'))
+                                @if ($errors->has('carrera_id'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('rol') }}</strong>
+                                        <strong>{{ $errors->first('carrera_id') }}</strong>
                                     </span>
                                 @endif
                             </div>
