@@ -121,9 +121,9 @@
                          <div class="form-group{{ $errors->has('carrera_id') ? ' has-error' : '' }}" >
                             <label for="carrera_id" class="col-md-4 control-label">Carrera</label>
                             <div class="col-md-6">
-                            <select  name="carrera_id" class="form-control">
+                            <select  name="carrera" class="form-control">
                                 @foreach(App\Carrera::all() as $carrera)
-                                <option value="$carrera->id">{{$carrera->carrera}}</option>
+                                <option value="{{$carrera->id}}">{{$carrera->carrera}}</option>
                     
                                 @endforeach
 

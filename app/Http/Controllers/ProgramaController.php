@@ -14,7 +14,22 @@ class ProgramaController extends Controller
      */
     public function index()
     {
-        //
+        $programas=Programa::where('id',2)->get();
+        return view('programa.indexPrograma',compact('programas'));
+        //$programas=Programa::where('nombre','!=','finanzas')->where('horario','9.-6')->get();
+
+        //para hace reportes 
+
+            /**
+                 * $programas=Programa::with('users'=>funtcion($query){
+                 *$query->where('rol','prestador');
+                 *}->get();
+                 *
+                 * @return \Illuminate\Http\Response
+                 */
+
+
+
     }
 
     /**
