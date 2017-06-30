@@ -18,6 +18,7 @@
                             <th>Correo</th>
                             <th>Carrera</th>
                             <th>Rol</th>
+                            <th>Acceso nombre correo</th>
                           </thead>
                         <body>
                             @foreach($users as $user)
@@ -28,6 +29,8 @@
                               <td>{{ $user->correo}}</td>
                               <td>{{ $user->carrera->carrera}}</td>
                               <td>{{ $user->rol}}</td>
+                              <td>{{ $user->usuario_correo}}</td>
+                              <td>{{ $user->numero_programas}}</td>
                             </tr>
                             @endforeach
                         </body>

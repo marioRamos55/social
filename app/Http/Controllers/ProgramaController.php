@@ -12,10 +12,37 @@ class ProgramaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($rol=null)
     {
+
+        if(isset($rol))
+        {
+            $programas=Programa::Rol($roll)->get();
+
+        }else
+        {
+            $programas= Programa::all()->load('users');
+        }
+
+        /** if($rol=='prestador')
+        {
+            $programas = Programa::with(['users'=>fuinction($query)
+            {
+                $query->where('rol','Prestador');
+
+            }])-get();
+        }elseif ($rol=='admin') {
+            $programas= Programa::with(['users'=>function($query){
+             $query->where('rol','admin');    
+         }])->get();
+            # code...
+        }else
+        {
+            //$programas=programa::all()->load('users');
+        }
+
         $programas=Programa::where('id',2)->get();
-        return view('programa.indexPrograma',compact('programas'));
+        return view('programa.indexPrograma',compact('programas'));*/
         //$programas=Programa::where('nombre','!=','finanzas')->where('horario','9.-6')->get();
 
         //para hace reportes 
